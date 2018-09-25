@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+
+    ports:
+      - 6379:6379
+
+  i1l:
+    image: golang
+
+    volumes:
+      - ./main.go:/usr/src/i1l/main.go:ro
+
+    ports:
+      - 8080:8080
+
+    command: bash -c 'cd /usr/src/i1l/ && go get -d && go run main.go'
