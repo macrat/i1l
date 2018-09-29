@@ -8,12 +8,12 @@ services:
       - 6379:6379
 
   i1l:
-    image: golang
+    image: ubuntu
 
     volumes:
-      - ./main.go:/usr/src/i1l/main.go:ro
+      - ./i1l:/i1l:ro
 
     ports:
       - 8080:8080
 
-    command: bash -c 'cd /usr/src/i1l/ && go get -d && go run main.go'
+    command: /i1l

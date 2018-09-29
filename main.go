@@ -100,7 +100,7 @@ type Store struct {
 }
 
 func NewStore() (*Store, error) {
-	conn, err := redis.Dial("tcp", "localhost:6379")
+	conn, err := redis.Dial("tcp", "redis:6379")
 	if err != nil {
 		return nil, err
 	}
