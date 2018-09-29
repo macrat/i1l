@@ -13,6 +13,8 @@ import (
 	"github.com/gomodule/redigo/redis"
 )
 
+//go:generate go-bindata-assetfs ./dist/...
+
 const (
 	TTL = 60 * 60 * 24 * 14
 )
@@ -160,12 +162,7 @@ func NewHandler() (Handler, error) {
 	if err != nil {
 		return Handler{}, err
 	}
-	return Handler{s, http.FileServer(http.Dir("dist"))}, nil
-}
-
-func (h Handler) Index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintln(w, "this is <b>i1l.io</b>")
+	return Handler{s, http.FileServer(assetFS())}, nil
 }
 
 func (h Handler) Subscribe(w http.ResponseWriter, r *http.Request) {
@@ -269,7 +266,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
 		switch r.Method {
 		case "GET":
-			http.ServeFile(w, r, "./dist/index.html")
+			h.fileServer.ServeHTTP(w, r)
 		case "POST":
 			h.Subscribe(w, r)
 		default:

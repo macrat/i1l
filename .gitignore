@@ -1,4 +1,5 @@
-i1l
 .nuxt
+bindata.go
 dist/
+i1l
 node_modules/
