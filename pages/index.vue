@@ -6,8 +6,8 @@ main {
 	align-items: center;
 	justify-content: center;
 }
-h1 {
-	text-align: center;
+img {
+	margin-bottom: 2em;
 }
 form {
 	width: 50em;
@@ -16,6 +16,15 @@ form {
 	justify-content: center;
 }
 @media screen and (max-width: 50em) {
+	#logo {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	main {
 		display: block;
 		padding: 0 1em;
@@ -24,6 +33,9 @@ form {
 		display: block;
 		width: auto;
 		text-align: right;
+	}
+	#card {
+		margin-top: 20%;
 	}
 }
 
@@ -34,10 +46,12 @@ form {
 </style>
 
 <template>
-	<main>
-		<h1>i1l</h1>
+	<main style="background-image: ">
+		<div id=logo>
+			<img src=~/assets/logo.svg>
+		</div>
 
-		<md-card>
+		<md-card id=card>
 			<md-card-content>
 				<form @submit.prevent=onsubmit>
 					<md-field>
@@ -59,7 +73,7 @@ form {
 			md-content=errorMessage
 			/>
 
-		<md-snackbar :md-active.sync=copyMessage :md-duration=1000>
+		<md-snackbar :md-active.sync=copyMessage :md-duration=3000>
 			<span>copied to clipboard</span>
 			<md-button class="md-primary" @click="copyMessage = false">OK</md-button>
 		</md-snackbar>
