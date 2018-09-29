@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
+	"github.com/patrickmn/go-cache"
 )
 
 //go:generate go-bindata-assetfs ./dist/...
@@ -160,6 +161,59 @@ func (s *RedisStore) New(to string) (from string, err error) {
 	return from, s.Set(from, to)
 }
 
+type MemoryStore struct {
+	cache *cache.Cache
+}
+
+func NewMemoryStore() MemoryStore {
+	return MemoryStore{cache.New(TTL*time.Second, 10*time.Minute)}
+}
+
+func (s MemoryStore) Set(from, to string) error {
+	s.cache.Set(from, to, cache.DefaultExpiration)
+	return nil
+}
+
+func (s MemoryStore) Get(from string) (to string, err error) {
+	if to, ok := s.cache.Get(from); ok {
+		return to.(string), nil
+	} else {
+		return "", fmt.Errorf("no such entry")
+	}
+}
+
+func (s MemoryStore) TTL(from string) (seconds int, err error) {
+	if _, expire, ok := s.cache.GetWithExpiration(from); ok {
+		return int(expire.Sub(time.Now()).Seconds()), nil
+	} else {
+		return 0, fmt.Errorf("no such entry")
+	}
+}
+
+func (s MemoryStore) Exists(from string) (bool, error) {
+	_, ok := s.cache.Get(from)
+	return ok, nil
+}
+
+func (s MemoryStore) FindAvailableKey() (from string, err error) {
+	for {
+		from = MakeKey()
+
+		var exists bool
+		if exists, err = s.Exists(from); err != nil || !exists {
+			return
+		}
+	}
+}
+
+func (s MemoryStore) New(to string) (from string, err error) {
+	from, err = s.FindAvailableKey()
+	if err != nil {
+		return
+	}
+	return from, s.Set(from, to)
+}
+
 type Handler struct {
 	store      Store
 	fileServer http.Handler
@@ -292,10 +346,13 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
+	/*
 	store, err := NewRedisStore("redis:6379")
 	if err != nil {
 		panic(err.Error())
 	}
+	*/
+	store := NewMemoryStore()
 
 	handler, err := NewHandler(store)
 	if err != nil {
