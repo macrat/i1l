@@ -1,0 +1,26 @@
+{
+  "name": "i1l",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/nuxt build --spa && go build",
+    "start": "./i1l"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macrat/i1l.git"
+  },
+  "author": "MacRat <m@crat.jp> (https://blanktar.jp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macrat/i1l/issues"
+  },
+  "homepage": "https://github.com/macrat/i1l#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "nuxt": "^2.0.0",
+    "vue-material": "^1.0.0-beta-10.2"
+  }
+}

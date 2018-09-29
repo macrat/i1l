@@ -98,7 +98,7 @@ type Store struct {
 }
 
 func NewStore() (*Store, error) {
-	conn, err := redis.Dial("tcp", "redis:6379")
+	conn, err := redis.Dial("tcp", "localhost:6379")
 	if err != nil {
 		return nil, err
 	}
@@ -151,7 +151,8 @@ func (s *Store) New(to string) (from string, err error) {
 }
 
 type Handler struct {
-	store *Store
+	store      *Store
+	fileServer http.Handler
 }
 
 func NewHandler() (Handler, error) {
@@ -159,7 +160,7 @@ func NewHandler() (Handler, error) {
 	if err != nil {
 		return Handler{}, err
 	}
-	return Handler{s}, nil
+	return Handler{s, http.FileServer(http.Dir("dist"))}, nil
 }
 
 func (h Handler) Index(w http.ResponseWriter, r *http.Request) {
@@ -196,8 +197,7 @@ func (h Handler) Subscribe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Header().Set("Location", fmt.Sprintf("%s/%s/stats", r.Host, key))
-	w.WriteHeader(http.StatusFound)
+	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "{\"info\":{\"short_url\":\"https://%s/%s\",\"original_url\":\"%s\",\"stats\":\"https://%s/%s/stats\",\"ttl\":%d},\"error\":null}\n", r.Host, key, u, r.Host, key, TTL)
 }
 
@@ -269,12 +269,14 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
 		switch r.Method {
 		case "GET":
-			h.Index(w, r)
+			http.ServeFile(w, r, "./dist/index.html")
 		case "POST":
 			h.Subscribe(w, r)
 		default:
 			h.MethodNotAllowed(w, r)
 		}
+	} else if strings.HasPrefix(r.URL.Path, "/_nuxt/") {
+		h.fileServer.ServeHTTP(w, r)
 	} else if len(r.URL.Path) == 4 {
 		h.Redirect(w, r)
 	} else if len(r.URL.Path) == 10 && strings.HasSuffix(r.URL.Path, "/stats") {
