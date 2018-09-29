@@ -1,54 +1,144 @@
+<style>
+body {
+	background: #eee;
+	font-family: Roboto, sans-serif;
+}
+</style>
+
 <style scoped>
 main {
 	min-width: 80%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
-img {
-	margin-bottom: 2em;
+#logo {
+	margin: 8px 0 24px;
 }
 form {
-	width: 50em;
+	width: 600px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-}
-@media screen and (max-width: 50em) {
-	#logo {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	main {
-		display: block;
-		padding: 0 1em;
-	}
-	form {
-		display: block;
-		width: auto;
-		text-align: right;
-	}
-	#card {
-		margin-top: 20%;
-	}
 }
 
 #result {
 	text-align: center;
 	font-size: 200%;
 }
+
+article {
+	background: white;
+	width: 100%;
+	margin-top: -64px;
+	padding: 120px 16px 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section {
+	width: 960px;
+	max-width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+article section:nth-child(even) {
+	flex-flow: row-reverse;
+}
+section h1 {
+	margin: 0;
+	padding: 0;
+	transition: font-size .3s ease;
+}
+section img {
+	width: 500px;
+	height: 500px;
+	transition: opacity .3s, width .3s, height .3s;
+}
+
+footer {
+	width: 100%;
+	font-size: 90%;
+	text-align: center;
+	background: white;
+	color: #aaa;
+}
+
+footer > a {
+	color: #aaa !important;
+	text-decoration: underline !important;
+}
+
+@media screen and (max-width: 960px) {
+	article {
+		padding: 120px 32px 16px;
+	}
+	section {
+		justify-content: flex-end;
+		position: relative;
+		text-align: center;
+		height: 500px;
+	}
+	section h1 {
+		width: 100%;
+		text-align: left;
+	}
+	article section:nth-child(even) h1 {
+		text-align: right;
+	}
+	section img {
+		position: absolute;
+		opacity: .5;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	main {
+		display: block;
+	}
+	#logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 0 16px;
+	}
+	#card {
+		margin: 8px;
+	}
+	form {
+		display: block;
+		width: auto;
+		text-align: right;
+	}
+	article {
+		margin-top: -80px;
+	}
+	section {
+		height: 230px;
+	}
+	section h1 {
+		font-size: 30px;
+	}
+	section img {
+		width: 300px;
+		height: 300px;
+		opacity: .2;
+	}
+}
+
+.v-enter-active, .v-leave-active {
+	transition: all .3s ease;
+}
+.v-enter, .v-leave-to {
+	transform: translateY(-24px);
+	opacity: 0;
+}
 </style>
 
 <template>
-	<main style="background-image: ">
+	<main>
 		<div id=logo>
-			<img src=~/assets/logo.svg>
+			<img alt="i1l.io" src=~/assets/logo.svg>
 		</div>
 
 		<md-card id=card>
@@ -60,11 +150,32 @@ form {
 					<md-button class="md-raised md-primary" type=submit>SHORTEN</md-button>
 				</form>
 
-				<md-field v-if="shorten != null">
-					<md-input ref=result id=result @click=copy :value=shorten readonly @copy.native=copied />
-				</md-field>
+				<transition>
+					<md-field v-if="shorten != null">
+						<md-input ref=result id=result @click=copy :value=shorten readonly @copy.native=copied />
+					</md-field>
+				</transition>
 			</md-card-content>
 		</md-card>
+
+		<article>
+			<section>
+				<h1 class="md-display-2">Easy to Reading</h1>
+				<img src="~/assets/easy-to-reading.svg">
+			</section>
+			<section>
+				<h1 class="md-display-2">Easy to Writing</h1>
+				<img src="~/assets/easy-to-writing.svg">
+			</section>
+			<section>
+				<h1 class="md-display-2">Everything is Great</h1>
+				<img src="~/assets/everything-is-great.svg">
+			</section>
+		</article>
+
+		<footer>
+			MIT License (c)2018- <a href="https://blanktar.jp" target=_blank>MacRat</a>
+		</footer>
 
 		<md-dialog-alert
 			:md-active="errorMessage != null"
