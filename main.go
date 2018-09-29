@@ -95,30 +95,38 @@ func MakeKey() string {
 	}
 }
 
-type Store struct {
+type Store interface {
+	Set(from, to string) error
+	Get(from string) (to string, err error)
+	TTL(from string) (seconds int, err error)
+	Exists(from string) (bool, error)
+	New(to string) (from string, err error)
+}
+
+type RedisStore struct {
 	conn redis.Conn
 }
 
-func NewStore() (*Store, error) {
-	conn, err := redis.Dial("tcp", "redis:6379")
+func NewRedisStore(address string) (Store, error) {
+	conn, err := redis.Dial("tcp", address)
 	if err != nil {
 		return nil, err
 	}
-	return &Store{conn}, nil
+	return &RedisStore{conn}, nil
 }
 
-func (s *Store) Set(from, to string) error {
+func (s *RedisStore) Set(from, to string) error {
 	s.conn.Send("MULTI")
 	s.conn.Send("SET", from, to)
 	s.conn.Send("EXPIRE", from, TTL)
 	return s.conn.Send("EXEC")
 }
 
-func (s *Store) Get(from string) (to string, err error) {
+func (s *RedisStore) Get(from string) (to string, err error) {
 	return redis.String(s.conn.Do("GET", from))
 }
 
-func (s *Store) TTL(from string) (int, error) {
+func (s *RedisStore) TTL(from string) (seconds int, err error) {
 	ttl, err := redis.Int(s.conn.Do("TTL", from))
 	if err != nil {
 		return 0, err
@@ -129,11 +137,11 @@ func (s *Store) TTL(from string) (int, error) {
 	return ttl, nil
 }
 
-func (s *Store) Exists(from string) (bool, error) {
+func (s *RedisStore) Exists(from string) (bool, error) {
 	return redis.Bool(s.conn.Do("EXISTS", from))
 }
 
-func (s *Store) FindAvailableKey() (from string, err error) {
+func (s *RedisStore) FindAvailableKey() (from string, err error) {
 	for {
 		from = MakeKey()
 
@@ -144,7 +152,7 @@ func (s *Store) FindAvailableKey() (from string, err error) {
 	}
 }
 
-func (s *Store) New(to string) (from string, err error) {
+func (s *RedisStore) New(to string) (from string, err error) {
 	from, err = s.FindAvailableKey()
 	if err != nil {
 		return
@@ -153,16 +161,12 @@ func (s *Store) New(to string) (from string, err error) {
 }
 
 type Handler struct {
-	store      *Store
+	store      Store
 	fileServer http.Handler
 }
 
-func NewHandler() (Handler, error) {
-	s, err := NewStore()
-	if err != nil {
-		return Handler{}, err
-	}
-	return Handler{s, http.FileServer(assetFS())}, nil
+func NewHandler(store Store) (Handler, error) {
+	return Handler{store, http.FileServer(assetFS())}, nil
 }
 
 func (h Handler) Subscribe(w http.ResponseWriter, r *http.Request) {
@@ -288,9 +292,15 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	handler, err := NewHandler()
+	store, err := NewRedisStore("redis:6379")
 	if err != nil {
 		panic(err.Error())
 	}
+
+	handler, err := NewHandler(store)
+	if err != nil {
+		panic(err.Error())
+	}
+
 	http.ListenAndServe(":8080", handler)
 }
