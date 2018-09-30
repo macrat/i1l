@@ -6,7 +6,8 @@ export default {
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
 		],
 		link: [
-			{rel: 'shortcut icon', href: '/favicon.svg', type: "image/svg+xml", sizes: 'any'},
+			{rel: 'icon shortcut', href: '/favicon.ico', type: 'image/x-icon'},
+			{rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml', sizes: 'any'},
 			{rel: 'mask-icon', href: '/favicon.svg', color: 'black'},
 			{rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto'},
 		],

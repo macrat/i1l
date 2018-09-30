@@ -330,7 +330,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		default:
 			h.MethodNotAllowed(w, r)
 		}
-	} else if r.URL.Path == "/favicon.svg" || strings.HasPrefix(r.URL.Path, "/_nuxt/") {
+	} else if r.URL.Path == "/favicon.svg" || r.URL.Path == "/favicon.ico" || strings.HasPrefix(r.URL.Path, "/_nuxt/") {
 		h.fileServer.ServeHTTP(w, r)
 	} else if len(r.URL.Path) == 4 {
 		h.Redirect(w, r)

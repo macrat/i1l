@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/nuxt build --spa && cp -r ./assets/icon.svg ./dist/favicon.svg && go generate && go build",
+    "build": "./node_modules/.bin/nuxt build --spa && cp -r ./assets/favicon.* ./dist/ && go generate && go build",
     "clean": "rm -r dist .nuxt i1l",
     "start": "./i1l"
   },
