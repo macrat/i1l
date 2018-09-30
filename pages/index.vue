@@ -1,6 +1,6 @@
 <style>
 body {
-	background: #eee;
+	background: white;
 	font-family: Roboto, sans-serif;
 }
 </style>
@@ -13,7 +13,11 @@ main {
 	align-items: center;
 }
 #logo {
-	margin: 8px 0 24px;
+	background: #eee;
+	margin: 0 0 -72px;
+	padding: 8px 0 88px;
+	text-align: center;
+	width: 100%;
 }
 form {
 	width: 600px;
@@ -27,10 +31,8 @@ form {
 }
 
 article {
-	background: white;
 	width: 100%;
-	margin-top: -64px;
-	padding: 120px 16px 16px;
+	padding: 56px 16px 16px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -60,7 +62,6 @@ footer {
 	width: 100%;
 	font-size: 90%;
 	text-align: center;
-	background: white;
 	color: #aaa;
 }
 
