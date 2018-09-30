@@ -103,10 +103,9 @@ footer > a {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 0 0 16px;
 	}
 	#card {
-		margin: 8px;
+		margin: 0 8px 16px;
 	}
 	form {
 		display: block;
