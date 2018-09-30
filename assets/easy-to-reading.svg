@@ -28,9 +28,9 @@
      inkscape:window-height="480"
      id="namedview856"
      showgrid="false"
-     inkscape:zoom="0.5871875"
-     inkscape:cx="437.38728"
-     inkscape:cy="670.3849"
+     inkscape:zoom="1.6608171"
+     inkscape:cx="413.7678"
+     inkscape:cy="537.49218"
      inkscape:current-layer="svg1586" />
   <metadata
      id="metadata1592">
@@ -48,7 +48,7 @@
      id="defs1590" />
   <g
      id="g1582"
-     transform="matrix(3.5907581,0,0,3.5907581,-230.93676,-3977.6067)"
+     transform="matrix(3.5907581,0,0,3.5907581,-228.67884,-3972.1877)"
      style="fill:#505050;fill-opacity:1">
     <g
        id="g1578"
@@ -72,37 +72,45 @@
   </g>
   <g
      id="g1857"
-     transform="translate(-10.138263,-170.28853)"
+     transform="translate(-16.460452,-173.44962)"
      style="fill:#505050;fill-opacity:1">
     <g
-       aria-label="i"
-       transform="matrix(3.9502791,-0.85545991,0.85545991,3.9502791,-671.71589,-1204.0165)"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot1693">
-      <path
-         d="m 108.04202,400.61675 h -2.90133 c -5.205336,0.93867 -8.021336,1.36534 -12.544002,1.70667 v 2.56 l 1.706666,0.17067 c 4.437334,0.42666 5.632,1.96266 5.632,7.08266 v 20.05334 c 0,4.69333 -1.536,6.656 -5.290666,7.08267 l -2.133334,0.17066 v 2.56 h 22.869336 v -2.56 l -2.048,-0.17066 c -3.84,-0.42667 -5.29067,-2.38934 -5.29067,-7.08267 z m -3.92533,-14.42133 c -2.90134,0 -5.205336,2.304 -5.205336,5.12 0,2.90133 2.303996,5.20533 5.119996,5.20533 2.90134,0 5.20534,-2.304 5.20534,-5.12 0,-2.816 -2.304,-5.20533 -5.12,-5.20533 z"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
-         id="path876" />
-    </g>
-    <g
-       aria-label="1"
-       transform="matrix(3.4594952,0.50616966,-0.50616966,3.4594952,-2.6770328,-1101.1015)"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot1693-4">
-      <path
-         d="m 123.14602,383.89142 h -2.73066 c -5.54667,1.28 -7.33867,1.62133 -15.87201,2.64533 v 2.56 l 3.41334,0.17067 c 6.22933,0.256 7.08266,1.28 7.08266,8.02133 v 32.68267 c 0,4.608 -0.256,5.97334 -1.10933,6.82667 -1.36533,1.36533 -3.92533,2.304 -6.656,2.47467 l -2.816,0.17066 v 2.56 h 29.09867 v -2.56 l -2.73067,-0.17066 c -6.48533,-0.42667 -7.68,-1.792 -7.68,-9.13067 z"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
-         id="path879" />
-    </g>
-    <g
-       aria-label="l"
-       transform="matrix(3.6477013,-0.39684653,0.39684653,3.6477013,-259.2123,-1170.3847)"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       id="flowRoot1693-4-4">
-      <path
-         d="m 107.95669,380.81942 h -3.41334 c -4.26666,1.70667 -6.229329,2.21867 -12.031996,2.90133 v 2.64534 l 1.792,0.17066 c 4.608,0.42667 5.546667,1.96267 5.546667,9.55734 v 36.096 c 0,4.69333 -1.450667,6.656 -5.290667,7.08267 l -2.048,0.17066 v 2.56 h 22.698666 v -2.56 l -1.96267,-0.17066 c -3.84,-0.42667 -5.29066,-2.38934 -5.29066,-7.08267 z"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
-         id="path882" />
+       id="g4518"
+       transform="translate(-9.9348686,1.3547549)">
+      <g
+         id="flowRoot1693"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="matrix(4.0306203,-0.30102562,0.30102562,4.0306203,-443.14705,-1298.8732)"
+         aria-label="i">
+        <path
+           inkscape:connector-curvature="0"
+           id="path876"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
+           d="m 106.08696,401.02248 -2.89921,-0.11069 c -5.237361,0.73938 -8.067593,1.0583 -12.599989,1.22682 l -0.09767,2.55814 1.698912,0.23566 c 4.417824,0.59565 5.55302,2.17611 5.35767,7.29238 l -0.765117,20.03874 c -0.179069,4.68991 -1.788834,6.59255 -5.557045,6.87565 l -2.138292,0.0892 -0.09768,2.55813 22.852691,0.87256 0.0977,-2.55814 -2.04,-0.24867 c -3.82092,-0.57287 -5.19565,-2.58946 -5.01658,-7.27938 z m -3.37224,-14.56059 c -2.899221,-0.1107 -5.28945,2.10371 -5.396892,4.91766 -0.110697,2.89922 2.103711,5.28945 4.917662,5.39689 2.89923,0.1107 5.28946,-2.10372 5.3969,-4.91767 0.10744,-2.81395 -2.10372,-5.28944 -4.91767,-5.39688 z" />
+      </g>
+      <g
+         id="flowRoot1693-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="matrix(3.4594952,0.50616966,-0.50616966,3.4594952,4.5483264,-1084.3928)"
+         aria-label="1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path879"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
+           d="m 123.14602,383.89142 h -2.73066 c -5.54667,1.28 -7.33867,1.62133 -15.87201,2.64533 v 2.56 l 3.41334,0.17067 c 6.22933,0.256 7.08266,1.28 7.08266,8.02133 v 32.68267 c 0,4.608 -0.256,5.97334 -1.10933,6.82667 -1.36533,1.36533 -3.92533,2.304 -6.656,2.47467 l -2.816,0.17066 v 2.56 h 29.09867 v -2.56 l -2.73067,-0.17066 c -6.48533,-0.42667 -7.68,-1.792 -7.68,-9.13067 z" />
+      </g>
+      <g
+         id="flowRoot1693-4-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;line-height:125%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';letter-spacing:0px;word-spacing:0px;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="matrix(3.5741359,-0.82991818,0.82991818,3.5741359,-425.97156,-1123.0117)"
+         aria-label="l">
+        <path
+           sodipodi:nodetypes="cccccssccccccsc"
+           inkscape:connector-curvature="0"
+           id="path882"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Bookman L';-inkscape-font-specification:'URW Bookman L';fill:#505050;fill-opacity:1"
+           d="m 100.30301,386.34535 -3.356887,0.61822 c -3.886984,2.45122 -3.234088,2.85784 -8.817152,4.58019 l 0.603548,3.28659 1.793272,-0.15673 c 3.537964,-0.31855 3.31917,1.37815 4.695597,8.84705 l 6.259482,33.96633 c 0.8506,4.61561 -0.22115,6.80866 -3.92036,7.92378 l -1.983219,0.53877 0.617636,3.3653 22.323353,-4.11118 -0.61774,-3.36529 -1.96112,0.18764 c -3.85377,0.27589 -5.63569,-1.39162 -6.48597,-6.00729 z" />
+      </g>
     </g>
   </g>
 </svg>
