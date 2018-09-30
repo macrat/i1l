@@ -32,7 +32,7 @@ form {
 
 article {
 	width: 100%;
-	padding: 56px 16px 16px;
+	padding: 72px 16px 16px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -40,6 +40,7 @@ article {
 section {
 	width: 960px;
 	max-width: 100%;
+	margin: -42px 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -77,6 +78,7 @@ footer > a {
 	section {
 		justify-content: flex-end;
 		position: relative;
+		margin: 0;
 		text-align: center;
 		height: 500px;
 	}
